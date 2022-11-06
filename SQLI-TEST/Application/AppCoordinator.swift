@@ -8,16 +8,22 @@
 import UIKit
 import RxSwift
 
-class AppCoordinator: BaseCoordinator<Void> {
-
-    private let window: UIWindow
+class AppCoordinator: Coordinator {
+    let window: UIWindow
 
     init(window: UIWindow) {
         self.window = window
     }
 
-    override func start() -> Observable<Void> {
-        let usersListCoordinator = UsersListCoordinator(window: window)
-        return coordinate(to: usersListCoordinator)
+    func start() {
+        let navigationController = UINavigationController()
+        if #available(iOS 13.0, *) {
+            navigationController.overrideUserInterfaceStyle = .light
+        }
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
+        let usersListCoordinator = UsersListCoordinatorImplementation(navigationController: navigationController)
+        coordinate(to: usersListCoordinator)
     }
 }

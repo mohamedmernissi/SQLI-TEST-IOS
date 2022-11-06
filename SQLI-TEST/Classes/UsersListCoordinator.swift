@@ -6,28 +6,25 @@
 //
 
 import Foundation
-import RxSwift
+import UIKit
 
-class UsersListCoordinator: BaseCoordinator<Void> {
+protocol UsersListCoordinator: AnyObject { }
 
-    private let window: UIWindow
+class UsersListCoordinatorImplementation: Coordinator {
+    unowned let navigationController: UINavigationController
 
-    init(window: UIWindow) {
-        self.window = window
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
-    override func start() -> Observable<Void> {
-        let viewModel = UsersListViewModelImplementation(userService: ApiService())
+    func start() {
+        let viewModel = UsersListViewModelImplementation(userService: ApiService()
+                                                         ,coordinator: self)
         let viewController = UsersListViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-
         viewController.viewModel = viewModel
-
-
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
-        return Observable.never()
+        navigationController
+            .pushViewController(viewController, animated: true)
     }
-
 }
+
+extension UsersListCoordinatorImplementation: UsersListCoordinator {}

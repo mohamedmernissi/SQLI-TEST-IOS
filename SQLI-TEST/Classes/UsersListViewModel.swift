@@ -30,11 +30,15 @@ class UsersListViewModelImplementation: UsersListViewModel {
     // MARK: - Private properties
     private let pageNumber = BehaviorRelay<Int>(value: 1)
     private var totalPages: Int?
-    private var userService: Service
     private let disposeBag = DisposeBag()
 
-    init(userService: Service) {
+    private var userService: Service
+    private let coordinator: UsersListCoordinator
+
+    init(userService: Service,
+         coordinator: UsersListCoordinator) {
         self.userService = userService
+        self.coordinator = coordinator
         bindPageNumber()
         bindOnDidScrollToBottom()
     }
