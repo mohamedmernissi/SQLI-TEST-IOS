@@ -19,9 +19,13 @@ class UsersListViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UserCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120
         return tableView
+    }()
+
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true
+        return indicator
     }()
 
     override func viewDidLoad() {
@@ -43,16 +47,23 @@ class UsersListViewController: UIViewController {
         // View Model outputs to the View Controller
 
         viewModel.users
-            .observe(on: MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: CELL_IDENTIFIER, cellType: UserCell.self)) { (_, user, cell) in
                 cell.setupViews()
                 cell.bind(user: user)
             }
             .disposed(by: disposeBag)
 
-        viewModel.alertMessage
-            .subscribe(onNext: { [weak self] in self?.presentAlert(message: $0) })
-            .disposed(by: disposeBag)
+        tableView.rx.didScroll.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            let offSetY = self.tableView.contentOffset.y
+            let contentHeight = self.tableView.contentSize.height
+
+            if offSetY > (contentHeight - self.tableView.frame.size.height - 100) {
+                self.viewModel.didScrollToTheBottom.accept(())
+            }
+        }
+        .disposed(by: disposeBag)
+
     }
 
     private func presentAlert(message: String) {

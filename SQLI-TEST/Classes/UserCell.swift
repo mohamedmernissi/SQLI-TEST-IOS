@@ -15,17 +15,17 @@ class UserCell: UITableViewCell {
         return view
     }()
 
-    private lazy var nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         return label
     }()
 
-    private lazy var avatarImage: UIImageView = {
+    private var avatarImage: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
 
-    private lazy var emailLabel: UILabel = {
+    private var emailLabel: UILabel = {
         let label = UILabel()
         return label
     }()

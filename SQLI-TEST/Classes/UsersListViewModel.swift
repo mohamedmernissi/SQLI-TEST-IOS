@@ -5,35 +5,86 @@
 //  Created by mohamed mernissi on 5/11/2022.
 //
 
-import Foundation
 import RxSwift
+import RxRelay
 
-class UsersListViewModel {
+protocol UsersListViewModel: AnyObject {
+    // Input
+    var didScrollToTheBottom: PublishRelay<Void> { get }
+
+    // Output
+    var users: BehaviorRelay<[UserViewModel]> { get }
+}
+
+class UsersListViewModelImplementation: UsersListViewModel {
 
     // MARK: - Inputs
 
+    let didScrollToTheBottom = PublishRelay<Void>()
+
     // MARK: - Outputs
 
-    /// Emits an array of fetched users.
-    let users: Observable<[UserViewModel]>
+    let users = BehaviorRelay<[UserViewModel]>(value: [])
+    let alertMessage = PublishRelay<String>()
 
-    /// Emits an error messages to be shown.
-    let alertMessage: Observable<String>
+    // MARK: - Private properties
+    private let pageNumber = BehaviorRelay<Int>(value: 1)
+    private var totalPages: Int?
+    private var userService: Service
+    private let disposeBag = DisposeBag()
 
     init(userService: Service) {
+        self.userService = userService
+        bindPageNumber()
+        bindOnDidScrollToBottom()
+    }
 
-        let _alertMessage = PublishSubject<String>()
-        self.alertMessage = _alertMessage.asObservable()
-
-        self.users = Observable.just(())
-            .flatMapLatest({
-                userService.getUsers(byPage: 1)
-                    .catch { error in
-                        _alertMessage.onNext(error.localizedDescription)
-                        return Observable.empty()
-                    }
-            }).map({ user in
-                user.data.map(UserViewModel.init)
+    func getUsers() {
+        if let totalPages = totalPages {
+            guard pageNumber.value <= totalPages else {
+                return
+            }
+        }
+        userService.getUsers(byPage: pageNumber.value)
+            .do(onNext: { response in
+                self.totalPages = response.totalPages
             })
+            .map({ response in
+                return response.data.map(UserViewModel.init)
+            })
+            .flatMap({ [unowned self] (users) -> Observable<[UserViewModel]> in
+                
+                var usersArray: [UserViewModel] = []
+
+                let existingUsers = self.users.value
+                if !existingUsers.isEmpty {
+                    usersArray.append(contentsOf: existingUsers)
+                }
+
+                usersArray.append(contentsOf: users)
+
+                return Observable.just(usersArray)
+            })
+
+            .bind(to: users)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindPageNumber() {
+        pageNumber
+            .subscribe(onNext: { [weak self] _ in
+                self?.getUsers()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindOnDidScrollToBottom() {
+        didScrollToTheBottom
+            .flatMap({ [unowned self] _ -> Observable<Int> in
+                let newPageNumber = self.pageNumber.value + 1
+                return Observable.just(newPageNumber)
+            })
+            .bind(to: pageNumber)
+            .disposed(by: disposeBag)
     }
 }

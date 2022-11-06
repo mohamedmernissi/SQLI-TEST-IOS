@@ -26,7 +26,7 @@ class ApiService: Service {
     }
 
     func getUsers(byPage page: Int) -> Observable<User> {
-        let urlRequest = URLRequest(url: URL(string: "https://reqres.in/api/users?page:\(page)")!)
+        let urlRequest = URLRequest(url: URL(string: "https://reqres.in/api/users?page=\(page)")!)
         return session.rx
             .data(request: urlRequest)
             .flatMap { data throws -> Observable<User> in

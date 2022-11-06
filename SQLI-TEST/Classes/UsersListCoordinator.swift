@@ -17,7 +17,7 @@ class UsersListCoordinator: BaseCoordinator<Void> {
     }
 
     override func start() -> Observable<Void> {
-        let viewModel = UsersListViewModel(userService: ApiService())
+        let viewModel = UsersListViewModelImplementation(userService: ApiService())
         let viewController = UsersListViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
 
