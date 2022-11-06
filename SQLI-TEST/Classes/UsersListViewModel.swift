@@ -25,12 +25,12 @@ class UsersListViewModelImplementation: UsersListViewModel {
     // MARK: - Outputs
 
     let users = BehaviorRelay<[UserViewModel]>(value: [])
-    let alertMessage = PublishRelay<String>()
 
     // MARK: - Private properties
     private let pageNumber = BehaviorRelay<Int>(value: 1)
     private var totalPages: Int?
     private let disposeBag = DisposeBag()
+    lazy var pageNumberObs = pageNumber.asObservable()
 
     private var userService: Service
     private let coordinator: UsersListCoordinator

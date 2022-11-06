@@ -24,6 +24,7 @@
 		A8B095A42916DA64002F2DC5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095A32916DA64002F2DC5 /* BaseCoordinator.swift */; };
 		A8B095A62916DB7B002F2DC5 /* UsersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095A52916DB7B002F2DC5 /* UsersListCoordinator.swift */; };
 		A8B095A82916DDE4002F2DC5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095A72916DDE4002F2DC5 /* AppCoordinator.swift */; };
+		A8B095AC291865C2002F2DC5 /* UsersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095AB291865C2002F2DC5 /* UsersListViewModelTests.swift */; };
 		B239AFD1F4B8166C0116F005 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84120AF7C74DC245CC7CB94 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework */; };
 		D3A8CEB5D70E848488A7ED43 /* Pods_SQLI_TESTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C69F6472C11FE5F07FF7DD /* Pods_SQLI_TESTTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		A8B095A32916DA64002F2DC5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		A8B095A52916DB7B002F2DC5 /* UsersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListCoordinator.swift; sourceTree = "<group>"; };
 		A8B095A72916DDE4002F2DC5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A8B095AB291865C2002F2DC5 /* UsersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModelTests.swift; sourceTree = "<group>"; };
 		E84120AF7C74DC245CC7CB94 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLI_TEST_SQLI_TESTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F6D55A927427E91940AFDD /* Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig"; path = "Target Support Files/Pods-SQLI-TEST-SQLI-TESTUITests/Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF1F094CFB764223B52F24DB /* Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig"; path = "Target Support Files/Pods-SQLI-TEST-SQLI-TESTUITests/Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A8B095772916639A002F2DC5 /* SQLI_TESTTests.swift */,
+				A8B095AB291865C2002F2DC5 /* UsersListViewModelTests.swift */,
 			);
 			path = "SQLI-TESTTests";
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B095782916639A002F2DC5 /* SQLI_TESTTests.swift in Sources */,
+				A8B095AC291865C2002F2DC5 /* UsersListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
