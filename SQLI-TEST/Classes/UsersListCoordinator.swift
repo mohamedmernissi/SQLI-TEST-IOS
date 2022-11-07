@@ -12,11 +12,11 @@ protocol UsersListCoordinator: AnyObject { }
 
 class UsersListCoordinatorImplementation: Coordinator {
     unowned let navigationController: UINavigationController
-
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-
+    
     func start() {
         let viewModel = UsersListViewModelImplementation(userService: ApiService()
                                                          ,coordinator: self)

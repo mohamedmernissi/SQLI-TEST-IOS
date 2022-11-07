@@ -14,6 +14,7 @@ protocol UsersListViewModel: AnyObject {
 
     // Output
     var users: BehaviorRelay<[UserViewModel]> { get }
+    var alertMessage: PublishRelay<String> { get }
 }
 
 class UsersListViewModelImplementation: UsersListViewModel {
@@ -25,6 +26,7 @@ class UsersListViewModelImplementation: UsersListViewModel {
     // MARK: - Outputs
 
     let users = BehaviorRelay<[UserViewModel]>(value: [])
+    var alertMessage = PublishRelay<String>()
 
     // MARK: - Private properties
     private let pageNumber = BehaviorRelay<Int>(value: 1)
@@ -53,26 +55,29 @@ class UsersListViewModelImplementation: UsersListViewModel {
             .do(onNext: { response in
                 self.totalPages = response.totalPages
             })
-            .map({ response in
-                return response.data.map(UserViewModel.init)
+            .catch({ [weak self] error in
+                self?.alertMessage.accept(error.localizedDescription)
+                return Observable.empty()
             })
-            .flatMap({ [unowned self] (users) -> Observable<[UserViewModel]> in
-                
-                var usersArray: [UserViewModel] = []
+                .map({ response in
+                    return response.data.map(UserViewModel.init)
+                })
+                    .flatMap({ [unowned self] (users) -> Observable<[UserViewModel]> in
 
-                let existingUsers = self.users.value
-                if !existingUsers.isEmpty {
-                    usersArray.append(contentsOf: existingUsers)
+                        var usersArray: [UserViewModel] = []
+
+                        let existingUsers = self.users.value
+                        if !existingUsers.isEmpty {
+                            usersArray.append(contentsOf: existingUsers)
+                        }
+
+                        usersArray.append(contentsOf: users)
+
+                        return Observable.just(usersArray)
+                    })
+                        .bind(to: users)
+                        .disposed(by: disposeBag)
                 }
-
-                usersArray.append(contentsOf: users)
-
-                return Observable.just(usersArray)
-            })
-
-            .bind(to: users)
-            .disposed(by: disposeBag)
-    }
 
     private func bindPageNumber() {
         pageNumber

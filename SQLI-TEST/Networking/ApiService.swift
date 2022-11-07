@@ -31,7 +31,8 @@ class ApiService: Service {
             .data(request: urlRequest)
             .flatMap { data throws -> Observable<User> in
                 guard
-                    let decodedResponse = try? JSONDecoder().decode(User.self, from: data)
+                    let decodedResponse = try? JSONDecoder().decode(User.self,
+                                                                    from: data)
                 else { return Observable.error(ServiceError.cannotParse) }
 
                 return Observable.just(decodedResponse)

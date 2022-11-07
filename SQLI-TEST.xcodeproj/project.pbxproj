@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EA6FF94C85BA58818BD32AD /* Pods_SQLI_TEST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D2CC01F26C00B62DBE7EA26 /* Pods_SQLI_TEST.framework */; };
+		A894054929191F46000E0496 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A894054829191F46000E0496 /* Localizable.strings */; };
 		A8B0956129166397002F2DC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0956029166397002F2DC5 /* AppDelegate.swift */; };
 		A8B0956329166397002F2DC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0956229166397002F2DC5 /* SceneDelegate.swift */; };
 		A8B0956529166397002F2DC5 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B0956429166397002F2DC5 /* UsersListViewController.swift */; };
@@ -25,6 +26,7 @@
 		A8B095A62916DB7B002F2DC5 /* UsersListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095A52916DB7B002F2DC5 /* UsersListCoordinator.swift */; };
 		A8B095A82916DDE4002F2DC5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095A72916DDE4002F2DC5 /* AppCoordinator.swift */; };
 		A8B095AC291865C2002F2DC5 /* UsersListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095AB291865C2002F2DC5 /* UsersListViewModelTests.swift */; };
+		A8B095B12918FFE7002F2DC5 /* Tools + Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B095B02918FFE7002F2DC5 /* Tools + Extenstions.swift */; };
 		B239AFD1F4B8166C0116F005 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84120AF7C74DC245CC7CB94 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework */; };
 		D3A8CEB5D70E848488A7ED43 /* Pods_SQLI_TESTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C69F6472C11FE5F07FF7DD /* Pods_SQLI_TESTTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +55,7 @@
 		6A7EEBA422FA8E3AB51E6111 /* Pods-SQLI-TESTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TESTTests.debug.xcconfig"; path = "Target Support Files/Pods-SQLI-TESTTests/Pods-SQLI-TESTTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7280349E4B53ABEFEB081C98 /* Pods-SQLI-TESTTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TESTTests.release.xcconfig"; path = "Target Support Files/Pods-SQLI-TESTTests/Pods-SQLI-TESTTests.release.xcconfig"; sourceTree = "<group>"; };
 		75C69F6472C11FE5F07FF7DD /* Pods_SQLI_TESTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLI_TESTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A894054829191F46000E0496 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A8B0955D29166397002F2DC5 /* SQLI-TEST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SQLI-TEST.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B0956029166397002F2DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8B0956229166397002F2DC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		A8B095A52916DB7B002F2DC5 /* UsersListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListCoordinator.swift; sourceTree = "<group>"; };
 		A8B095A72916DDE4002F2DC5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A8B095AB291865C2002F2DC5 /* UsersListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModelTests.swift; sourceTree = "<group>"; };
+		A8B095B02918FFE7002F2DC5 /* Tools + Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tools + Extenstions.swift"; sourceTree = "<group>"; };
 		E84120AF7C74DC245CC7CB94 /* Pods_SQLI_TEST_SQLI_TESTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SQLI_TEST_SQLI_TESTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F6D55A927427E91940AFDD /* Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig"; path = "Target Support Files/Pods-SQLI-TEST-SQLI-TESTUITests/Pods-SQLI-TEST-SQLI-TESTUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF1F094CFB764223B52F24DB /* Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig"; path = "Target Support Files/Pods-SQLI-TEST-SQLI-TESTUITests/Pods-SQLI-TEST-SQLI-TESTUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		A8B0955F29166397002F2DC5 /* SQLI-TEST */ = {
 			isa = PBXGroup;
 			children = (
+				A8B095B229191ECD002F2DC5 /* Localizable */,
+				A8B095AF2918FFD8002F2DC5 /* Tools */,
 				A8B0959E29168D61002F2DC5 /* Application */,
 				A8B095A22916DA42002F2DC5 /* Coordinator */,
 				A8B095902916663E002F2DC5 /* Networking */,
@@ -229,6 +235,22 @@
 				A8B095A32916DA64002F2DC5 /* BaseCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A8B095AF2918FFD8002F2DC5 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A8B095B02918FFE7002F2DC5 /* Tools + Extenstions.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		A8B095B229191ECD002F2DC5 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				A894054829191F46000E0496 /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B0956D2916639A002F2DC5 /* LaunchScreen.storyboard in Resources */,
+				A894054929191F46000E0496 /* Localizable.strings in Resources */,
 				A8B0956A2916639A002F2DC5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +495,7 @@
 				A8B095A82916DDE4002F2DC5 /* AppCoordinator.swift in Sources */,
 				A8B095942916680C002F2DC5 /* ApiService.swift in Sources */,
 				A8B0959D29167E8F002F2DC5 /* UserViewModel.swift in Sources */,
+				A8B095B12918FFE7002F2DC5 /* Tools + Extenstions.swift in Sources */,
 				A8B095A62916DB7B002F2DC5 /* UsersListCoordinator.swift in Sources */,
 				A8B0956529166397002F2DC5 /* UsersListViewController.swift in Sources */,
 				A8B0959929167693002F2DC5 /* UserCell.swift in Sources */,
@@ -650,6 +674,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SQLI-TEST/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -677,6 +702,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SQLI-TEST/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

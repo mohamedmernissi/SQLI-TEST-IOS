@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SQLI-TEST
+
+  Created by mohamed mernissi on 7/11/2022.
+  
+*/
+
+"error" = "Error";
+"ok" = "OK";

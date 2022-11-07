@@ -10,11 +10,11 @@ import RxSwift
 
 class AppCoordinator: Coordinator {
     let window: UIWindow
-
+    
     init(window: UIWindow) {
         self.window = window
     }
-
+    
     func start() {
         let navigationController = UINavigationController()
         if #available(iOS 13.0, *) {
@@ -22,7 +22,6 @@ class AppCoordinator: Coordinator {
         }
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
-
         let usersListCoordinator = UsersListCoordinatorImplementation(navigationController: navigationController)
         coordinate(to: usersListCoordinator)
     }
